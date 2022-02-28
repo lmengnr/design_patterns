@@ -1,0 +1,6 @@
+[submodule "simple_observer_pattern"]
+	path = simple_observer_pattern
+	url = git@github.com:lmengnr/simple_observer_pattern.git
+[submodule "strategy_pattern"]
+	path = strategy_pattern
+	url = git@github.com:lmengnr/strategy_pattern.git
