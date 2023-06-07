@@ -4,3 +4,6 @@
 [submodule "strategy_pattern"]
 	path = strategy_pattern
 	url = git@github.com:lmengnr/strategy_pattern.git
+[submodule "decorator_pattern"]
+	path = decorator_pattern
+	url = git@github.com:lmengnr/decorator_pattern.git
