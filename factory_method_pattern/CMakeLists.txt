@@ -4,5 +4,7 @@ project(factory_method_example)
 
 add_executable(
     ${CMAKE_PROJECT_NAME}
+    PizzaStore.h
+    PizzaStore.cpp
     main.cpp
 )
