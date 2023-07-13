@@ -1,4 +1,15 @@
-class Pizza;
+#pragma once
+#include <string>
+#include <memory>
+
+class Pizza
+{
+public:
+    Pizza() = default;
+    virtual ~Pizza() = default;
+
+    virtual std::string PresentOrder() = 0;
+};
 
 class PizzaStore
 {
@@ -6,7 +17,7 @@ public:
     PizzaStore() = default;
     virtual ~PizzaStore() = default;
 
-    virtual Pizza CreatePizza() = 0;
+    virtual std::unique_ptr<Pizza> CreatePizza(std::string strPizzaType) = 0;
 };
 
 ////////////////////////////////////////////////////////////
@@ -16,17 +27,25 @@ public:
 class NewYorkPizza : public PizzaStore
 {
 public:
+    class NewYorkCheesePizza;
+    class NewYorkPepperoniPizza;
+
+public:
     NewYorkPizza() = default;
     ~NewYorkPizza() override = default;
 
-    Pizza CreatePizza() override;
+    std::unique_ptr<Pizza> CreatePizza(std::string strPizzaType) override;
 };
 
 class DesiPizza : public PizzaStore
 {
 public:
+    class DesiBbqPizza;
+    class DesiTandooriPizza;
+
+public:
     DesiPizza() = default;
     ~DesiPizza() override = default;
 
-    Pizza CreatePizza() override;
+    std::unique_ptr<Pizza> CreatePizza(std::string strPizzaType) override;
 };
