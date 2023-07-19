@@ -24,28 +24,28 @@ public:
 ////////////// CONCRETE IMPLEMENTATIONS ////////////////////
 ////////////////////////////////////////////////////////////
 
-class NewYorkPizza : public PizzaStore
+class NewYorkPizzaStore : public PizzaStore
 {
 public:
     class NewYorkCheesePizza;
     class NewYorkPepperoniPizza;
 
 public:
-    NewYorkPizza() = default;
-    ~NewYorkPizza() override = default;
+    NewYorkPizzaStore() = default;
+    ~NewYorkPizzaStore() override = default;
 
     std::unique_ptr<Pizza> CreatePizza(std::string strPizzaType) override;
 };
 
-class DesiPizza : public PizzaStore
+class DesiPizzaStore : public PizzaStore
 {
 public:
     class DesiBbqPizza;
     class DesiTandooriPizza;
 
 public:
-    DesiPizza() = default;
-    ~DesiPizza() override = default;
+    DesiPizzaStore() = default;
+    ~DesiPizzaStore() override = default;
 
     std::unique_ptr<Pizza> CreatePizza(std::string strPizzaType) override;
 };
