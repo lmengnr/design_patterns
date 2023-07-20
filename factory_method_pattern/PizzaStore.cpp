@@ -6,7 +6,7 @@ public:
     NewYorkCheesePizza() = default;
     ~NewYorkCheesePizza() override = default;
 
-    std::string PresentOrder()
+    std::string PresentOrder() override
     {
         return std::string("Here's you NewYorkCheese Pizza!");
     }
@@ -18,7 +18,7 @@ public:
     NewYorkPepperoniPizza() = default;
     ~NewYorkPepperoniPizza() override = default;
 
-    std::string PresentOrder()
+    std::string PresentOrder() override
     {
         return std::string("Here's you NewYorkPepperoni Pizza!");
     }
@@ -26,7 +26,7 @@ public:
 
 std::unique_ptr<Pizza> NewYorkPizzaStore::CreatePizza(std::string strPizzaType)
 {
-    std::unique_ptr<Pizza> pYourPizza;
+    std::unique_ptr<Pizza> pYourPizza = nullptr;
     if (strPizzaType == "Cheese")
     {
         pYourPizza = std::make_unique<NewYorkCheesePizza>();
@@ -35,11 +35,8 @@ std::unique_ptr<Pizza> NewYorkPizzaStore::CreatePizza(std::string strPizzaType)
     {
         pYourPizza = std::make_unique<NewYorkPepperoniPizza>();
     }
-    else
-    {
-        //TODO: Look into better error handling
-        return nullptr;
-    }
+
+    return pYourPizza;
 }
 
 class DesiPizzaStore::DesiBbqPizza : public Pizza
@@ -48,7 +45,7 @@ class DesiPizzaStore::DesiBbqPizza : public Pizza
     DesiBbqPizza() = default;
     ~DesiBbqPizza() override = default;
 
-    std::string PresentOrder()
+    std::string PresentOrder() override
     {
         return std::string("Here's you Desi BBQ Pizza!");
     }
@@ -60,7 +57,7 @@ class DesiPizzaStore::DesiTandooriPizza : public Pizza
     DesiTandooriPizza() = default;
     ~DesiTandooriPizza() override = default;
 
-    std::string PresentOrder()
+    std::string PresentOrder() override
     {
         return std::string("Here's you Desi Tandoori Pizza!");
     }
@@ -68,7 +65,7 @@ class DesiPizzaStore::DesiTandooriPizza : public Pizza
 
 std::unique_ptr<Pizza> DesiPizzaStore::CreatePizza(std::string strPizzaType)
 {
-    std::unique_ptr<Pizza> pYourPizza;
+    std::unique_ptr<Pizza> pYourPizza = nullptr;
     if (strPizzaType == "BBQ")
     {
         pYourPizza = std::make_unique<DesiBbqPizza>();
@@ -77,9 +74,6 @@ std::unique_ptr<Pizza> DesiPizzaStore::CreatePizza(std::string strPizzaType)
     {
         pYourPizza = std::make_unique<DesiTandooriPizza>();
     }
-    else
-    {
-        //TODO: Look into better error handling
-        return nullptr;
-    }
+    
+    return pYourPizza;
 }

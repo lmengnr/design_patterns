@@ -17,6 +17,12 @@ public:
     PizzaStore() = default;
     virtual ~PizzaStore() = default;
 
+    std::unique_ptr<Pizza> OrderPizza(std::string strPizzaType)
+    {
+        return CreatePizza(strPizzaType);
+    }
+
+protected:
     virtual std::unique_ptr<Pizza> CreatePizza(std::string strPizzaType) = 0;
 };
 
@@ -34,6 +40,7 @@ public:
     NewYorkPizzaStore() = default;
     ~NewYorkPizzaStore() override = default;
 
+protected:
     std::unique_ptr<Pizza> CreatePizza(std::string strPizzaType) override;
 };
 
@@ -47,5 +54,6 @@ public:
     DesiPizzaStore() = default;
     ~DesiPizzaStore() override = default;
 
+protected:
     std::unique_ptr<Pizza> CreatePizza(std::string strPizzaType) override;
 };
